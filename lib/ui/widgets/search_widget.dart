@@ -14,7 +14,7 @@ class SearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40,
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width * 0.75,
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(

@@ -39,6 +39,7 @@ dependencies:
   stacked_themes: ^0.3.12
   shared_preferences: ^2.2.0
   carousel_slider: ^4.2.1
+  firebase_core: ^2.15.0
 
 dev_dependencies:
   stacked_generator: ^1.4.0

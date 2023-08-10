@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "233627242171",
+    "project_id": "prueba-monja",
+    "storage_bucket": "prueba-monja.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233627242171:android:087691e570d88198f5239e",
+        "android_client_info": {
+          "package_name": "com.prueba.monja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233627242171-l4b54oke6qaaht1kgebali8l6lg3jjsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCP0ER3RtopXJUZ16EaMBYlv0PdmjcFiq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233627242171-l4b54oke6qaaht1kgebali8l6lg3jjsa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

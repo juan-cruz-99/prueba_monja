@@ -27,11 +27,31 @@ class HomeView extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Center(
-                      child: SearchWidget(
-                        controller: vm.search,
-                        onChanged: vm.findByName,
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SearchWidget(
+                          controller: vm.search,
+                          onChanged: vm.findByName,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            vm.dialog();
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: Colors.blue,
+                            ),
+                            height: 40,
+                            width: 40,
+                            child: const Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                     Expanded(
                       child: vm.searchResults.isEmpty && vm.search.text.isNotEmpty
@@ -40,9 +60,15 @@ class HomeView extends StatelessWidget {
                               itemCount: vm.searchResults.isNotEmpty ? vm.searchResults.length : vm.shopsResponse.length,
                               itemBuilder: (_, index) {
                                 ShopData shop = vm.searchResults.isNotEmpty ? vm.searchResults[index] : vm.shopsResponse[index];
-                                return ShopCardWidget(
-                                  navigate: () => vm.navigateToDetailView(shop),
-                                  element: shop,
+                                return Dismissible(
+                                  onDismissed: (direction) {
+                                    vm.onDismiss(index);
+                                  },
+                                  key: Key(shop.name),
+                                  child: ShopCardWidget(
+                                    navigate: () => vm.navigateToDetailView(shop),
+                                    element: shop,
+                                  ),
                                 );
                               }),
                     )

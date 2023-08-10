@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_monja/app.router.dart';
+import 'package:prueba_monja/core/enums/dialog_type.dart';
 import 'package:prueba_monja/core/models/api_shops_response.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -8,6 +9,7 @@ import '../../app.locator.dart';
 class HomeViewViewModel extends ChangeNotifier {
   final NavigationService _navigationService = locator<NavigationService>();
   final TextEditingController search = TextEditingController();
+  final DialogService _dialogService = locator<DialogService>();
 
   List<ShopData> shopsResponse = [
     ShopData(
@@ -46,5 +48,22 @@ class HomeViewViewModel extends ChangeNotifier {
 
   void navigateToDetailView(shopDetail) async {
     await _navigationService.navigateToDetailView(shopDetail: shopDetail);
+  }
+
+  void dialog() async {
+    var response = await _dialogService.showCustomDialog(
+      variant: DialogType.foodForm,
+      title: 'hola',
+    );
+    if (response!.confirmed) {
+      ShopData newShop = response.data;
+      shopsResponse.insert(0, newShop);
+      notifyListeners();
+    }
+  }
+
+  void onDismiss(index) {
+    shopsResponse.removeAt(index);
+    notifyListeners();
   }
 }

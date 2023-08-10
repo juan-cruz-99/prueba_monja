@@ -15,6 +15,9 @@ import 'package:stacked_services/stacked_services.dart';
     LazySingleton(
       classType: NavigationService,
     ),
+    LazySingleton(
+      classType: DialogService,
+    ),
     Presolve(
       classType: SharedPreferences,
       presolveUsing: SharedPreferences.getInstance,

@@ -1,4 +1,4 @@
-package com.example.prueba_monja
+package com.prueba.monja
 
 import io.flutter.embedding.android.FlutterActivity
 
